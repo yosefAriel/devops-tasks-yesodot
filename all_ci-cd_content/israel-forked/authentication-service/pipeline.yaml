@@ -1,0 +1,6 @@
+repoName: meateam/authentication-service
+runTests: true
+testCommand: "npm test"
+deployUponTestSuccess: true
+deployCommand:
+deployEnvironment:

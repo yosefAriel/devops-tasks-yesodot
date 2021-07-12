@@ -1,0 +1,69 @@
+syntax = "proto3";
+
+package permit;
+ 
+service permit {
+    rpc CreatePermit(CreatePermitRequest) returns (CreatePermitResponse) {}
+    rpc UpdatePermitStatus(UpdatePermitStatusRequest) returns (UpdatePermitStatusResponse) {}
+    rpc GetPermitByFileID(GetPermitByFileIDRequest) returns (GetPermitByFileIDResponse) {}
+    rpc HasPermit(HasPermitRequest) returns (HasPermitResponse) {}
+}
+
+message CreatePermitRequest {
+    string fileID = 1;
+    string sharerID = 2;
+    repeated User users = 3;
+    string classification = 4;
+    string info = 5;
+    repeated string approvers = 6;
+    string fileName = 7;
+}
+
+message User {
+    string id = 1;
+    string full_name = 2;
+}
+
+message CreatePermitResponse {
+
+}
+
+
+message UpdatePermitStatusRequest {
+    string reqID = 1;
+    string status = 2;
+}
+
+message UpdatePermitStatusResponse {
+
+}
+
+
+message GetPermitByFileIDRequest {
+    string fileID = 1;
+}
+
+message GetPermitByFileIDResponse {
+    repeated UserStatus userStatus = 1;
+}
+
+message HasPermitRequest {
+    string fileID = 1;
+    string userID = 2;
+}
+
+message HasPermitResponse {
+    bool hasPermit = 1;
+}
+
+message UserStatus {
+    string userId = 1;
+    string status = 2;
+}
+
+message PermitObject {
+    string reqID = 1;
+    string fileID = 2;
+    string userID = 3;
+    string status = 4;
+}

@@ -1,0 +1,25 @@
+{
+    "all": true,
+    "per-file": true,
+    "include": [
+      "src/**/*.ts"
+    ],
+    "exclude": [
+      "src/utils/logger.ts",
+      "src/**/*.spec.ts",
+      "src/**/*.interface.ts",
+      "src/**/index.ts"
+    ],
+    "extension": [
+      ".ts"
+    ],
+    "require": [
+      "ts-node/register"
+    ],
+    "reporter": [
+      "text-summary",
+      "html"
+    ],
+    "sourceMap": true,
+    "instrument": true
+  }

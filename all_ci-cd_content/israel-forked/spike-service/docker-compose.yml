@@ -1,0 +1,15 @@
+version: "3"
+services:
+  spike-service:
+    build: .
+    image: spike-service:latest
+    ports:
+      - "8080:8080"
+    env_file:
+      - ../kdrive.env
+    depends_on:
+      - redis
+  redis:
+    image: "redis:alpine"
+    ports:
+      - "6379:6379"
